@@ -35,14 +35,14 @@ class SetCards
   end
 
   def count_valid_sets(all_selections)
-    valid_sets(all_selections).count(true)
+    valid_sets(all_selections).count(:valid)
   end
 
   private
 
   def valid_sets(all_selections)
     all_selections.map do |selection|
-      valid_set?(selection)
+      :valid if valid_set?(selection)
     end
   end
 end
